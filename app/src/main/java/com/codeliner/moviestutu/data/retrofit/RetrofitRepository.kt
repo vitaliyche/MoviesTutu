@@ -1,12 +1,12 @@
-package com.codeliner.movieselect.data.retrofit
+package com.codeliner.moviestutu.data.retrofit
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.codeliner.movieselect.data.retrofit.api.RetrofitInstance
-import com.codeliner.movieselect.model.MovieResult
-import com.codeliner.movieselect.model.MoviesModel
-import com.codeliner.movieselect.paging.MoviesPagingSource
+import com.codeliner.moviestutu.data.retrofit.api.RetrofitInstance
+import com.codeliner.moviestutu.model.MovieResult
+import com.codeliner.moviestutu.model.MoviesModel
+import com.codeliner.moviestutu.paging.MoviesPagingSource
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 

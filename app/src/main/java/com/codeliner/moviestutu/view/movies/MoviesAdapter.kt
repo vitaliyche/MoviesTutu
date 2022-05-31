@@ -1,5 +1,6 @@
-package com.codeliner.movieselect.view.movies
+package com.codeliner.moviestutu.view.movies
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +8,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.codeliner.movieselect.R
-import com.codeliner.movieselect.model.MovieResult
+import com.codeliner.moviestutu.R
+import com.codeliner.moviestutu.model.MovieResult
 import kotlinx.android.synthetic.main.item_movies.view.*
 
 val callback = object : DiffUtil.ItemCallback<MovieResult>() {
@@ -22,6 +23,9 @@ val callback = object : DiffUtil.ItemCallback<MovieResult>() {
 }
 
 class MoviesAdapter : PagingDataAdapter<MovieResult, MoviesAdapter.MyViewHolder>(callback) {
+
+    private var moviesList = emptyList<MovieResult>()
+    var listener: ((MovieResult) -> Unit)? = null
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -41,6 +45,12 @@ class MoviesAdapter : PagingDataAdapter<MovieResult, MoviesAdapter.MyViewHolder>
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(holder.itemView.item_img_movie)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setList(list: List<MovieResult>) {
+        moviesList = list
+        notifyDataSetChanged()
     }
 
 } //в PagingDataAdapter уже зашит список, не нужно создавать и обновлять. Обновляется через submitData

@@ -1,17 +1,16 @@
-package com.codeliner.movieselect
+package com.codeliner.moviestutu
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.codeliner.movieselect.databinding.ActivityMainBinding
-import com.codeliner.movieselect.databinding.FragmentMoviesBinding
+import com.codeliner.moviestutu.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private var moviesBinding: ActivityMainBinding? = null
     private val binding get() = moviesBinding!!
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

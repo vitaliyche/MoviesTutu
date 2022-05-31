@@ -1,6 +1,7 @@
-package com.codeliner.movieselect.model
+package com.codeliner.moviestutu.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MoviesModel(
     @SerializedName("copyright")
@@ -13,4 +14,4 @@ data class MoviesModel(
     val results: List<MovieResult>,
     @SerializedName("status")
     val status: String
-)
+): Serializable

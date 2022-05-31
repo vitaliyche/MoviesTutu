@@ -1,4 +1,4 @@
-package com.codeliner.movieselect.model
+package com.codeliner.moviestutu.model
 
 import com.google.gson.annotations.SerializedName
 

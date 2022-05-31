@@ -1,6 +1,6 @@
-package com.codeliner.movieselect.data.retrofit.api
+package com.codeliner.moviestutu.data.retrofit.api
 
-import com.codeliner.movieselect.model.MoviesModel
+import com.codeliner.moviestutu.model.MoviesModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

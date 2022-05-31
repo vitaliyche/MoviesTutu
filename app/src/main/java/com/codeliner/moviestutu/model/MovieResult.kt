@@ -1,6 +1,7 @@
-package com.codeliner.movieselect.model
+package com.codeliner.moviestutu.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MovieResult(
     @SerializedName("byline")
@@ -25,4 +26,4 @@ data class MovieResult(
     val publication_date: String,
     @SerializedName("summary_short")
     val summary_short: String
-)
+): Serializable
