@@ -30,7 +30,6 @@ class MoviesViewModel : ViewModel() {
                 Log.e("ERROR", e.message.toString())
             }
         }
-
     }
 
 }

@@ -40,11 +40,19 @@ class MoviesAdapter : PagingDataAdapter<MovieResult, MoviesAdapter.MyViewHolder>
         holder.itemView.item_tv_description.text = item.summary_short
         val context = holder.itemView.context
 
+        holder.itemView.setOnClickListener {
+            listener?.invoke(moviesList[position])
+        }
+
         Glide.with(context)
             .load(item.multimedia.src)
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(holder.itemView.item_img_movie)
+    }
+
+    override fun getItemCount(): Int {
+        return moviesList.size
     }
 
     @SuppressLint("NotifyDataSetChanged")

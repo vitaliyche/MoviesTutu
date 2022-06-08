@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.codeliner.moviestutu.R
 import com.codeliner.moviestutu.databinding.FragmentMoviesBinding
@@ -33,14 +33,13 @@ class MoviesFragment : Fragment() {
         adapter.listener = {
             val bundle = Bundle()
             bundle.putSerializable("model", it)
-            //findNavController().navigate(R.id.action_moviesFragment_to_detailFragment, bundle)
-            Navigation.findNavController(view).navigate(MoviesFragmentDirections.actionMoviesFragmentToDetailFragment())
+            findNavController().navigate(R.id.action_moviesFragment_to_detailFragment, bundle)
+            //Navigation.findNavController(view).navigate(MoviesFragmentDirections.actionMoviesFragmentToDetailFragment())
 
         }
         recyclerView.adapter = adapter
-        viewModel.getMovies()
-        viewModel.myMovies.observe(viewLifecycleOwner) { list ->
-        //    list.body()?.let { adapter.setList(it) }
+        viewModel.myMovies.observe(viewLifecycleOwner) { response ->
+            response.body()?.let { adapter.setList(it.results) }
         }
         return binding.root
     }
